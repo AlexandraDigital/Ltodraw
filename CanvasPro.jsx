@@ -53,6 +53,11 @@ export default function CanvasPro({ lessonId = "one" }) {
 
   const requiredVpCount = MODE_TO_VP_COUNT[mode] ?? 1;
 
+  useEffect(() => {
+    setVanishingPoints([]);
+    setPracticePoints([]);
+  }, [mode]);
+
   const progressLabel = useMemo(() => {
     if (vanishingPoints.length < requiredVpCount) {
       return `Step 1: Place ${requiredVpCount - vanishingPoints.length} more vanishing point${

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function UploadDrawing({ lessonTitle, onFeedback }) {
   const [focus, setFocus] = useState("line_accuracy");
+  const focusLabel = focus.split("_").join(" ");
 
   const handleUpload = async (e) => {
     const file = e.target.files?.[0];
@@ -17,10 +18,7 @@ export default function UploadDrawing({ lessonTitle, onFeedback }) {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            message: `You're coaching my ${lessonTitle} study. Focus this critique on ${focus.replaceAll(
-              "_",
-              " "
-            )}. Give 3 strengths, 3 fixes, and one 10-minute drill.`,
+            message: `You're coaching my ${lessonTitle} study. Focus this critique on ${focusLabel}. Give 3 strengths, 3 fixes, and one 10-minute drill.`,
             image: base64,
           }),
         });

@@ -29,6 +29,10 @@ export default function AITutor({ lesson }) {
         body: JSON.stringify({ message: nextInput }),
       });
 
+      if (!res.ok) {
+        throw new Error(`AI request failed with ${res.status}`);
+      }
+
       const data = await res.json();
       const aiMsg = { role: "ai", text: data.reply };
       setMessages((prev) => [...prev, aiMsg]);
