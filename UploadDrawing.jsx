@@ -39,9 +39,10 @@ export default function UploadDrawing({ onFeedback }) {
   };
 
   return (
-    <div>
+    <section className="card">
       <h3>🖼️ Upload Drawing</h3>
-      <input type="file" accept="image/*" onChange={handleUpload} />
-    </div>
+      <p>Add an image and get perspective critique from the AI tutor.</p>
+      <input className="file-input" type="file" accept="image/*" onChange={handleUpload} />
+    </section>
   );
 }

@@ -7,14 +7,17 @@ export default function App() {
   const [feedback, setFeedback] = useState("");
 
   return (
-    <div style={{ padding: 20, fontFamily: "sans-serif" }}>
-      <h1>🎨 AI Perspective Studio</h1>
+    <div className="app-shell">
+      <h1 className="app-title">🎨 AI Perspective Studio</h1>
+      <p className="app-subtitle">Train perspective skills with a bold red-and-blue interface.</p>
 
-      <CanvasPro />
-      <UploadDrawing onFeedback={setFeedback} />
+      <div className="ui-grid">
+        <CanvasPro />
+        <UploadDrawing onFeedback={setFeedback} />
+      </div>
 
       {feedback && (
-        <div>
+        <div className="card feedback-card">
           <h3>🧠 AI Feedback</h3>
           <p>{feedback}</p>
         </div>
