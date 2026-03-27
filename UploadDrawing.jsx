@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function UploadDrawing({ onFeedback }) {
+export default function UploadDrawing({ lessonTitle, onFeedback }) {
+  const [focus, setFocus] = useState("line_accuracy");
+
   const handleUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -15,7 +17,10 @@ export default function UploadDrawing({ onFeedback }) {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            message: "Give feedback on my perspective drawing",
+            message: `You're coaching my ${lessonTitle} study. Focus this critique on ${focus.replaceAll(
+              "_",
+              " "
+            )}. Give 3 strengths, 3 fixes, and one 10-minute drill.`,
             image: base64,
           }),
         });
@@ -39,9 +44,20 @@ export default function UploadDrawing({ onFeedback }) {
   };
 
   return (
-    <div>
+    <section className="card">
       <h3>🖼️ Upload Drawing</h3>
-      <input type="file" accept="image/*" onChange={handleUpload} />
-    </div>
+      <p>Upload a perspective sketch and get lesson-aware critique.</p>
+
+      <label className="upload-focus">
+        Critique focus
+        <select value={focus} onChange={(e) => setFocus(e.target.value)}>
+          <option value="line_accuracy">Line accuracy</option>
+          <option value="depth_consistency">Depth consistency</option>
+          <option value="composition">Composition & readability</option>
+        </select>
+      </label>
+
+      <input className="file-input" type="file" accept="image/*" onChange={handleUpload} />
+    </section>
   );
 }
