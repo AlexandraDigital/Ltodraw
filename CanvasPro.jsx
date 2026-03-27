@@ -12,14 +12,14 @@ export default function CanvasPro() {
     setPoints((prev) => [...prev, { x, y }]);
 
     const ctx = canvasRef.current.getContext("2d");
-
-    // draw point
+    ctx.fillStyle = "#2f7dff";
     ctx.fillRect(x - 3, y - 3, 6, 6);
 
-    // draw perspective lines to first point (vanishing point)
     if (points.length > 0) {
       const vp = points[0];
       ctx.beginPath();
+      ctx.strokeStyle = "#e91e63";
+      ctx.lineWidth = 1.8;
       ctx.moveTo(x, y);
       ctx.lineTo(vp.x, vp.y);
       ctx.stroke();
@@ -27,16 +27,16 @@ export default function CanvasPro() {
   };
 
   return (
-    <div>
+    <section className="card">
       <h3>🎯 Perspective Trainer</h3>
-      <p>Click to place vanishing point, then click to draw lines toward it.</p>
+      <p>Click once for a vanishing point, then place more points to draw guide lines.</p>
       <canvas
         ref={canvasRef}
-        width={300}
-        height={300}
+        width={420}
+        height={320}
         onClick={handleClick}
-        style={{ border: "1px solid black" }}
+        className="canvas-pro"
       />
-    </div>
+    </section>
   );
 }

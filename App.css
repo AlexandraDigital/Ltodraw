@@ -1,0 +1,123 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top left, #1f6bff 0%, #0d1b4a 45%, #6f0018 100%);
+  color: #eef3ff;
+}
+
+.app-shell {
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 24px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(9, 26, 78, 0.88), rgba(124, 10, 39, 0.82));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.app-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+
+.app-subtitle {
+  margin: 0 0 22px;
+  color: #c9d8ff;
+}
+
+.ui-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(160deg, rgba(22, 56, 145, 0.48), rgba(186, 18, 74, 0.34));
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.feedback-card {
+  margin-top: 16px;
+  background: linear-gradient(160deg, rgba(25, 98, 255, 0.45), rgba(255, 51, 102, 0.32));
+}
+
+.canvas-pro {
+  width: 100%;
+  max-width: 420px;
+  border: 2px solid rgba(129, 181, 255, 0.85);
+  border-radius: 10px;
+  background: #f7faff;
+  cursor: crosshair;
+}
+
+.file-input,
+.tutor-input,
+.tutor-btn {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.file-input,
+.tutor-input {
+  width: 100%;
+  background: rgba(233, 242, 255, 0.95);
+  color: #10224e;
+}
+
+.tutor-messages {
+  margin: 0 0 10px;
+  padding: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(146, 186, 255, 0.45);
+  background: rgba(8, 16, 45, 0.45);
+}
+
+.msg {
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+
+.msg-user strong {
+  color: #8bc2ff;
+}
+
+.msg-ai strong {
+  color: #ff7ca1;
+}
+
+.tutor-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.tutor-btn {
+  min-width: 88px;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(135deg, #2f7dff, #e91e63);
+  cursor: pointer;
+}
+
+.tutor-btn:hover {
+  filter: brightness(1.07);
+}
